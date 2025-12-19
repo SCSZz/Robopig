@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About RoboPig - Learn Hacking & Internet Safety for Kids</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Nunito:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF6B8B;
+            --secondary: #36C5F0;
+            --accent: #7C5CFF;
+            --dark-blue: #0A0E2A;
+            --medium-blue: #1A1F4B;
+            --light-blue: #2A2F6B;
+            --bright-green: #2EFF8D;
+            --bright-yellow: #FFD166;
+            --bright-pink: #FF4D8D;
+            --light: #F7F9FC;
+            --success: #2EB67D;
+            --border-radius: 8px;
+            --shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            --pixel-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--dark-blue);
+            color: white;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(122, 97, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 139, 0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(10, 14, 42, 0.95);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--bright-yellow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 32px;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 3px 3px 0 var(--bright-pink);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            display: inline-block;
+            margin-right: 15px;
+            transform: rotate(-5deg);
+            font-size: 40px;
+            filter: drop-shadow(3px 3px 0 var(--bright-green));
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: 'Comic Neue', cursive;
+            border: 2px solid transparent;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--bright-yellow);
+            border: 2px solid white;
+            transform: translateY(-3px);
+            color: var(--dark-blue);
+        }
+        
+        .nav-btn {
+            background-color: var(--bright-green);
+            color: var(--dark-blue) !important;
+            padding: 12px 24px !important;
+            font-weight: 800;
+            text-shadow: none;
+            box-shadow: var(--pixel-shadow);
+        }
+        
+        .nav-btn:hover {
+            background-color: #25e07c;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Hero */
+        .about-hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, var(--medium-blue), var(--dark-blue));
+            border-bottom: 5px solid var(--bright-yellow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255, 77, 141, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(46, 255, 141, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-hero h1 {
+            font-size: 4rem;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 4px 4px 0 var(--bright-yellow);
+            margin-bottom: 20px;
+        }
+        
+        .about-hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Comic Neue', cursive;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--bright-yellow);
+            font-family: 'Press Start 2P', cursive;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        /* About Content */
+        .about-content {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 3px 3px 0 var(--bright-pink);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background-color: var(--bright-green);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .mission-section {
+            margin-bottom: 80px;
+        }
+        
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 992px) {
+            .mission-content {
+                flex-direction: column;
+            }
+        }
+        
+        .mission-text {
+            flex: 1;
+        }
+        
+        .mission-text p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .mission-image {
+            flex: 0 0 400px;
+        }
+        
+        .mission-robot {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--bright-pink), var(--bright-yellow));
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .mission-robot::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .robot-icon-large {
+            font-size: 120px;
+            z-index: 1;
+            filter: drop-shadow(5px 5px 0 rgba(0, 0, 0, 0.2));
+        }
+        
+        /* Values Section */
+        .values-section {
+            margin-bottom: 80px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background-color: var(--medium-blue);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--bright-green);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bright-pink);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            margin: 0 auto 25px;
+            transform: rotate(-5deg);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .value-card h3 {
+            font-size: 1.8rem;
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+        
+        /* Team Section - UPDATED LAYOUT */
+        .team-section {
+            margin-bottom: 80px;
+        }
+        
+        .team-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .team-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        }
+        
+        @media (max-width: 992px) {
+            .team-row {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .team-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+        
+        .team-member {
+            background-color: var(--medium-blue);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 200px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            border-color: var(--bright-yellow);
+        }
+        
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--bright-green), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: var(--dark-blue);
+            font-weight: bold;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .team-member h3 {
+            font-size: 1.6rem;
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            margin-bottom: 0;
+        }
+        
+        /* Story Timeline */
+        .story-section {
+            margin-bottom: 80px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--bright-yellow);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 31px;
+            }
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--medium-blue);
+            border-radius: var(--border-radius);
+            border: 3px solid var(--bright-pink);
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -13px;
+            background-color: var(--bright-pink);
+            border: 4px solid var(--dark-blue);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -13px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-content::after {
+                left: -13px !important;
+                right: auto;
+            }
+        }
+        
+        .timeline-year {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--bright-green);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bright-pink), var(--accent));
+            padding: 80px 0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 80px;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-section h2 {
+            font-size: 3rem;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 35px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: var(--pixel-shadow);
+        }
+        
+        .cta-primary {
+            background-color: white;
+            color: var(--bright-pink);
+        }
+        
+        .cta-primary:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-secondary {
+            background-color: var(--dark-blue);
+            color: white;
+            border: 3px solid white;
+        }
+        
+        .cta-secondary:hover {
+            background-color: rgba(10, 14, 42, 0.9);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            margin-bottom: 80px;
+        }
+        
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            width: 150px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--bright-yellow);
+            font-weight: bold;
+            font-family: 'Press Start 2P', cursive;
+            border: 2px solid var(--bright-yellow);
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            background-color: rgba(255, 209, 102, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(10, 14, 42, 0.95);
+            color: white;
+            padding: 60px 0 30px;
+            border-top: 5px solid var(--bright-green);
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-col h3::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background-color: var(--bright-pink);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--bright-green);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .about-hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .team-row {
+                justify-content: center;
+            }
+            
+            .team-member {
+                width: 180px;
+                min-height: 200px;
+                padding: 25px;
+            }
+            
+            .member-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav {
+                margin-top: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .team-container {
+                gap: 30px;
+            }
+            
+            .team-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .team-member {
+                width: 160px;
+                min-height: 180px;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .team-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .team-member {
+                width: 200px;
+                min-height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .mission-image {
+                flex: 0 0 100%;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .team-member {
+                width: 180px;
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🐷</div>
+                RoboPig
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#safety">Safety Tips</a></li>
+                    <li><a href="about.html" style="background-color: var(--bright-yellow); color: var(--dark-blue);">About</a></li>
+                    <li><a href="login.html" class="nav-btn">Start Learning</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container about-hero-content">
+            <h1>ABOUT ROBO<span style="color: var(--bright-green);">PIG</span></h1>
+            <p>We're on a mission to make cybersecurity and internet safety education fun, engaging, and accessible for kids everywhere. Join us in creating a safer digital world!</p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="stat-number" id="kidsCount">5,000+</div>
+                    <div class="stat-label">Kids Learning</div>
+                </div>
+                
+                <div class="hero-stat">
+                    <div class="stat-number" id="lessonsCount">120+</div>
+                    <div class="stat-label">Pixel Lessons</div>
+                </div>
+                
+                <div class="hero-stat">
+                    <div class="stat-number" id="countriesCount">40+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                
+                <div class="hero-stat">
+                    <div class="stat-number" id="teachersCount">500+</div>
+                    <div class="stat-label">Teachers Using</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <!-- Our Mission -->
+            <div class="mission-section">
+                <h2 class="section-title">OUR MISSION</h2>
+                <div class="mission-content">
+                    <div class="mission-text">
+                        <p>At RoboPig, we believe that every child deserves to explore the digital world safely and confidently. In today's connected age, understanding technology isn't just a skill—it's a superpower!</p>
+                        <p>Our mission is to transform how kids learn about cybersecurity, coding, and online safety. We make complex topics simple, scary concepts friendly, and boring lessons exciting through our pixel-powered platform.</p>
+                        <p>We teach kids not just how to use technology, but how to master it safely. From creating strong passwords to understanding ethical hacking principles, we're building the next generation of digital citizens.</p>
+                        <p>With RoboPig, learning about internet safety becomes an adventure, not a chore. We're making the internet a safer place, one kid at a time!</p>
+                    </div>
+                    <div class="mission-image">
+                        <div class="mission-robot">
+                            <div class="robot-icon-large">🐷💻</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Our Values -->
+            <div class="values-section">
+                <h2 class="section-title">OUR VALUES</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🔐</div>
+                        <h3>Safety First</h3>
+                        <p>We prioritize online safety above all else. Every lesson is designed with security in mind, teaching kids how to protect themselves and others.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🎮</div>
+                        <h3>Learn Through Play</h3>
+                        <p>Education should be fun! We use games, challenges, and interactive activities to make learning about technology exciting and engaging.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Inclusion for All</h3>
+                        <p>We believe every child should have access to technology education. Our platform is designed to be accessible and welcoming to everyone.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">💡</div>
+                        <h3>Creative Thinking</h3>
+                        <p>We encourage curiosity and creative problem-solving. Kids learn best when they're encouraged to experiment and think outside the box.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🛡️</div>
+                        <h3>Ethical Responsibility</h3>
+                        <p>We teach that with great technological power comes great responsibility. Ethical behavior online is at the core of everything we do.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🚀</div>
+                        <h3>Future Ready</h3>
+                        <p>We prepare kids for the digital future by teaching relevant, practical skills that will serve them throughout their lives.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Our Story -->
+            <div class="story-section">
+                <h2 class="section-title">OUR STORY</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2020</div>
+                            <h3>The Beginning</h3>
+                            <p>RoboPig started as a classroom project when our founder, a teacher, noticed kids were fascinated by hacking but didn't understand online safety.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021</div>
+                            <h3>First Prototype</h3>
+                            <p>We created our first interactive lessons about password safety and online privacy. Kids loved the pixel-themed design and game-like approach!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2022</div>
+                            <h3>Growing Community</h3>
+                            <p>RoboPig expanded to 100+ schools and launched our first coding courses. We reached our first 1,000 young learners!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2023</div>
+                            <h3>Platform Launch</h3>
+                            <p>We launched the full RoboPig platform with three complete courses and interactive challenges. Our community grew to 5,000+ kids worldwide!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <h3>The Future</h3>
+                            <p>We're developing new courses in AI safety, game development, and advanced cybersecurity. Our goal: reach 100,000 kids by 2025!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Our Team - UPDATED LAYOUT -->
+            <div class="team-section">
+                <h2 class="section-title">MEET OUR TEAM</h2>
+                <div class="team-container">
+                    <!-- Top Row - 3 Members -->
+                    <div class="team-row">
+                        <div class="team-member">
+                            <div class="member-avatar">A</div>
+                            <h3>Arnold</h3>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-avatar">V</div>
+                            <h3>Vinoth</h3>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-avatar">S</div>
+                            <h3>Susminthan</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Row - 3 Members -->
+                    <div class="team-row">
+                        <div class="team-member">
+                            <div class="member-avatar">N</div>
+                            <h3>Nazeem</h3>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-avatar">N</div>
+                            <h3>Nasih</h3>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-avatar">S</div>
+                            <h3>Shin</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Our Partners -->
+            <div class="partners-section">
+                <h2 class="section-title">TRUSTED BY</h2>
+                <div class="partners-grid">
+                    <div class="partner-logo">EDU<br>TECH</div>
+                    <div class="partner-logo">SAFE<br>NET</div>
+                    <div class="partner-logo">CODE<br>4KIDS</div>
+                    <div class="partner-logo">CYBER<br>FUN</div>
+                    <div class="partner-logo">DIGI<br>SAFE</div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>READY TO JOIN THE ADVENTURE?</h2>
+                <p>Start learning with RoboPig today and become a cybersecurity superhero! Perfect for kids, parents, and teachers.</p>
+                <div class="cta-buttons">
+                    <a href="login.html" class="cta-btn cta-primary">START LEARNING FREE</a>
+                    <a href="parents.html" class="cta-btn cta-secondary">PARENTS & TEACHERS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>RoboPig</h3>
+                    <p>Making cybersecurity and internet safety education fun and accessible for kids everywhere. Join the pixel-powered adventure today!</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="course-safety.html">Internet Safety Basics</a></li>
+                        <li><a href="course-coding.html">Introduction to Coding</a></li>
+                        <li><a href="course-hacking.html">Ethical Hacking for Kids</a></li>
+                        <li><a href="course-privacy.html">Privacy Protection</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="parents.html">Parent's Guide</a></li>
+                        <li><a href="teachers.html">Teacher Resources</a></li>
+                        <li><a href="checklist.html">Safety Checklists</a></li>
+                        <li><a href="activities.html">Printable Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 RoboPig. All rights reserved. Designed for kids' online safety education. Pixel power! 🐷💻</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate counting stats
+            function animateCount(element, target, suffix = '', duration = 2000) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current) + suffix;
+                    }
+                }, 16);
+            }
+            
+            // Start animations after a delay
+            setTimeout(() => {
+                animateCount(document.getElementById('kidsCount'), 5000, '+');
+                animateCount(document.getElementById('lessonsCount'), 120, '+');
+                animateCount(document.getElementById('countriesCount'), 40, '+');
+                animateCount(document.getElementById('teachersCount'), 500, '+');
+            }, 800);
+            
+            // Add interactive effects to value cards
+            const valueCards = document.querySelectorAll('.value-card');
+            valueCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.value-icon');
+                    icon.style.transform = 'rotate(5deg) scale(1.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.value-icon');
+                    icon.style.transform = 'rotate(-5deg) scale(1)';
+                });
+            });
+            
+            // Add interactive effects to team members
+            const teamMembers = document.querySelectorAll('.team-member');
+            teamMembers.forEach(member => {
+                member.addEventListener('mouseenter', function() {
+                    const avatar = this.querySelector('.member-avatar');
+                    avatar.style.transform = 'scale(1.1)';
+                    avatar.style.boxShadow = '8px 8px 0 rgba(0, 0, 0, 0.2)';
+                });
+                
+                member.addEventListener('mouseleave', function() {
+                    const avatar = this.querySelector('.member-avatar');
+                    avatar.style.transform = 'scale(1)';
+                    avatar.style.boxShadow = '6px 6px 0 rgba(0, 0, 0, 0.2)';
+                });
+                
+                // Add click effect to show team member name
+                member.addEventListener('click', function() {
+                    const name = this.querySelector('h3').textContent;
+                    const messages = [
+                        `${name} is part of the RoboPig team!`,
+                        `Say hello to ${name}!`,
+                        `${name} helps make RoboPig awesome!`,
+                        `Team member: ${name}`,
+                        `${name} is working hard to make internet safety fun!`
+                    ];
+                    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                    alert(randomMessage);
+                });
+            });
+            
+            // Add click effects to partner logos
+            const partnerLogos = document.querySelectorAll('.partner-logo');
+            partnerLogos.forEach(logo => {
+                logo.addEventListener('click', function() {
+                    const companyNames = ['EduTech Foundation', 'SafeNet Alliance', 'Code4Kids Initiative', 'CyberFun Labs', 'DigiSafe Partnership'];
+                    const index = Array.from(partnerLogos).indexOf(this);
+                    
+                    // Visual feedback
+                    this.style.backgroundColor = 'rgba(46, 255, 141, 0.3)';
+                    this.style.color = 'var(--bright-green)';
+                    
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                    }, 500);
+                    
+                    // Show message
+                    console.log(`Partner: ${companyNames[index]}`);
+                });
+            });
+            
+            // Timeline animation
+            const timelineItems = document.querySelectorAll('.timeline-content');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+            
+            // CTA button animations
+            const ctaButtons = document.querySelectorAll('.cta-btn');
+            ctaButtons.forEach(button => {
+                button.addEventListener('mousedown', function() {
+                    this.style.transform = 'translateY(2px)';
+                    this.style.boxShadow = '0 4px 0 rgba(0, 0, 0, 0.2)';
+                });
+                
+                button.addEventListener('mouseup', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 12px 0 rgba(0, 0, 0, 0.2)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = 'var(--pixel-shadow)';
+                });
+            });
+            
+            // Fun fact on page load
+            const funFacts = [
+                "Did you know? The average child spends 3 hours online every day!",
+                "Fun fact: RoboPig was originally created as a school project!",
+                "Interesting: Kids who learn coding early are better problem solvers!",
+                "Safety tip: Always ask a parent before downloading anything!",
+                "Pixel fact: Our design was inspired by classic video games!"
+            ];
+            
+            setTimeout(() => {
+                const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+                console.log(`💡 ${randomFact}`);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
